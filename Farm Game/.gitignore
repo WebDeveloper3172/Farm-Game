@@ -51,3 +51,5 @@ fabric.properties
 
 # TextMeshPro generated files
 [Aa]ssets/TextMesh Pro/**
+# Visual Studio generated files
+.vs/
