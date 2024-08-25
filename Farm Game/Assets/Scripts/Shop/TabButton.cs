@@ -1,18 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class TabButton : MonoBehaviour
+[RequireComponent(typeof(Image))]
+public class TabButton : MonoBehaviour , IPointerClickHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    public TabGroup tabGroup;
+    [NonSerialized] public Image background;
+
+    private void Awake()
     {
-        
+        background = GetComponent<Image>();
+        tabGroup.Subscribe(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
+        tabGroup.OnTabSelected(this);
     }
 }
