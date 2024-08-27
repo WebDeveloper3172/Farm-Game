@@ -80,6 +80,7 @@ public class ShopManager : MonoBehaviour
             {
                 ShopItem item = shopItems[key][j];
 
+                
                 if (item.Level == info.newLvl)
                 {
                     shopTabs.transform.GetChild(i).GetChild(j).GetComponent<ShopItemHolder>().UnlockItem();
