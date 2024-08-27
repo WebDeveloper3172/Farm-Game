@@ -18379,6 +18379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelPanel: {fileID: 7993475}
   lvlWindowPrefab: {fileID: 2081859974}
+  slider: {fileID: 1368587220}
 --- !u!4 &2136766810
 Transform:
   m_ObjectHideFlags: 0
