@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         current = this;
+        ShopItemDrag.canvas = canvas.GetComponent<Canvas>();
     }
 
     public void GetXP(int amount)

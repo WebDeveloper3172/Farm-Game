@@ -24,9 +24,9 @@ public class LevelSystem : MonoBehaviour
 
     private void Awake()
     {
-        slider = levelPanel.GetComponent<Slider>();
-        xpText = levelPanel.transform.Find("XP text").GetComponent<TextMeshProUGUI>();
-        starImage = levelPanel.transform.Find("Star").GetComponent<Image>();
+        slider = FindDeepChild(levelPanel.transform, "Slider").GetComponent<Slider>();
+        xpText = FindDeepChild(levelPanel.transform, "XP text").GetComponent<TextMeshProUGUI>();
+        starImage = FindDeepChild(levelPanel.transform, "Star").GetComponent<Image>();
         lvlText = starImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
         if (!initialized)
@@ -40,6 +40,7 @@ public class LevelSystem : MonoBehaviour
     {
         try
         {
+            // path to the csv file
             string path = "levelsXP";
             TextAsset textAsset = Resources.Load<TextAsset>(path);
             string[] lines = textAsset.text.Split('\n');
@@ -116,6 +117,7 @@ public class LevelSystem : MonoBehaviour
 
         GameObject window = Instantiate(lvlWindowPrefab , GameManager.current.canvas.transform);
 
+       //initialize text and image here
         window.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
         {
             Destroy(window);
@@ -133,5 +135,18 @@ public class LevelSystem : MonoBehaviour
     private GameObject Instantiate(GameObject lvlWindowPrefab, object transform)
     {
         throw new NotImplementedException();
+    }
+
+    private Transform FindDeepChild(Transform parent, string childName)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.name == childName)
+                return child;
+            Transform result = FindDeepChild(child, childName);
+            if (result != null)
+                return result;
+        }
+        return null;
     }
 }
