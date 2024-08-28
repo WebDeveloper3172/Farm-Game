@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item" , menuName = "Game Objects/Shop Item" , order = 0)]
+[CreateAssetMenu(fileName = "New Item" , menuName = "GameObjects/Shop Item" , order = 0)]
 public class ShopItem : ScriptableObject
 {
     public string Name = "Default";
