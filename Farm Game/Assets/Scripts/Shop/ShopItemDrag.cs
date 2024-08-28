@@ -28,7 +28,7 @@ public class ShopItemDrag : MonoBehaviour , IBeginDragHandler , IEndDragHandler 
     {
         drag = true;
         cg.blocksRaycasts = false;
-        img.maskable = true;
+        img.maskable = false;
     }
     public void OnDrag(PointerEventData eventData)
     {
