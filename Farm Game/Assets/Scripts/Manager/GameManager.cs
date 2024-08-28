@@ -23,4 +23,10 @@ public class GameManager : MonoBehaviour
 
         EventManager.Instance.QueueEvent(info);
     }
+    public void GetCrystals(int amount)
+    {
+        CurrencyChangeGameEvent info = new CurrencyChangeGameEvent(amount, CurrencyType.Crystals);
+
+        EventManager.Instance.QueueEvent(info);
+    }
 }
