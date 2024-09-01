@@ -12,6 +12,11 @@ public class BuildingSystem : MonoBehaviour
     public Tilemap MainTileMap;
     public TileBase takenTile;
 
+    private void Awake()
+    {
+        current = this;
+    }
+
     #region Tilemap Management
 
     private static TileBase[] GetTilesBlock(BoundsInt area, Tilemap tilemap)

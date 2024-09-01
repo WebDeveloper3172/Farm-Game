@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameEvent
+public abstract class GameEvent
 {
 
 }

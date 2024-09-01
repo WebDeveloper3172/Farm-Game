@@ -24,11 +24,15 @@ public class LevelSystem : MonoBehaviour
 
     private void Awake()
     {
+        //slider = levelPanel.GetComponent<Slider>();
+        //xpText = levelPanel.transform.Find("XP text").GetComponent<TextMeshProUGUI>();
+        //starImage = levelPanel.transform.Find("Star").GetComponent<Image>();
+
         slider = FindDeepChild(levelPanel.transform, "Slider").GetComponent<Slider>();
-        //slider = GetComponent<Slider>();
         xpText = FindDeepChild(levelPanel.transform, "XP text").GetComponent<TextMeshProUGUI>();
         starImage = FindDeepChild(levelPanel.transform, "Star").GetComponent<Image>();
         lvlText = starImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+
 
         if (!initialized)
         {

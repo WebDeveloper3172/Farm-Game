@@ -15,12 +15,13 @@ public class PlaceableObject : MonoBehaviour
         BoundsInt areaTemp = area;
         areaTemp.position = positionInt;
 
-        if (BuildingSystem.current.CanTakeArea(areaTemp))
-        {
-            return true;
-        }
+        //if (BuildingSystem.current.CanTakeArea(areaTemp))
+        //{
+        //    return true;
+        //}
 
-        return false;
+        //return false;
+        return BuildingSystem.current.CanTakeArea(areaTemp);
     }
 
     public void Place()
@@ -35,16 +36,72 @@ public class PlaceableObject : MonoBehaviour
 
     public void CheckPlacement()
     {
-        if (CanBePlaced())
+        if(!Placed)
         {
-            Place();
-            origin = transform.position;
+            if (CanBePlaced())
+            {
+                Place();
+                origin = transform.position;
+            }
+            else
+            {
+                Destroy(transform.gameObject);
+            }
+
+            ShopManager.current.ShopButton_Click();
         }
-        else 
+        else
         {
-            Destroy(transform.gameObject);
+            if (CanBePlaced())
+            {
+                Place();
+                origin = transform.position;
+            }
+            else
+            {
+                transform.position = origin;
+                Place();
+
+            }
         }
-        ShopManager.current.ShopButton_Click();
+
+   
     }
+
+    private float time = 0f;
+    private bool touching;
+
+    private void Update()
+    {
+        if (!touching && Placed)
+        { 
+            if(Input.GetMouseButtonDown(0))
+            {
+                time = 0;
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                time += Time.deltaTime;
+
+                if (time > 3f)
+                {
+                    touching = true;
+                    gameObject.AddComponent<ObjectDrag>();
+
+                    Vector3Int positionInt = BuildingSystem.current.gridLayout.WorldToCell(transform.position);
+                    BoundsInt areaTemp = area;
+                    areaTemp.position = positionInt;
+
+                    BuildingSystem.current.ClearArea(areaTemp, BuildingSystem.current.MainTileMap);
+                }
+            }
+        }
+
+        if (touching && Input.GetMouseButton(0))
+        {
+            touching = false;
+        }
+    }
+
 
 }
