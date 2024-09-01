@@ -32,7 +32,7 @@ public class ShopItemHolder : MonoBehaviour
     }
     public void UnlockItem()
     {
-        iconImage.gameObject.AddComponent<ShopItemDrag>();
+        iconImage.gameObject.AddComponent<ShopItemDrag>().Initialize(Item);
         iconImage.transform.GetChild(0).gameObject.SetActive(true);
     }
 
