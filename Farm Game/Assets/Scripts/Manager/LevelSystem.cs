@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -24,15 +24,10 @@ public class LevelSystem : MonoBehaviour
 
     private void Awake()
     {
-        //slider = levelPanel.GetComponent<Slider>();
-        //xpText = levelPanel.transform.Find("XP text").GetComponent<TextMeshProUGUI>();
-        //starImage = levelPanel.transform.Find("Star").GetComponent<Image>();
-
         slider = FindDeepChild(levelPanel.transform, "Slider").GetComponent<Slider>();
         xpText = FindDeepChild(levelPanel.transform, "XP text").GetComponent<TextMeshProUGUI>();
         starImage = FindDeepChild(levelPanel.transform, "Star").GetComponent<Image>();
         lvlText = starImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
 
         if (!initialized)
         {
@@ -94,20 +89,30 @@ public class LevelSystem : MonoBehaviour
     }
     private void UpdateUI()
     {
+        if (xpToNext == 0)
+        {
+            Debug.LogError("UpdateUI: xpToNext este 0, ceea ce va cauza NaN. Verifică inițializarea valorilor.");
+            return;
+        }
         float fill = (float)XPNow / xpToNext;
         slider.value = fill;
+        //Debug.Log($"UpdateUI: Valoarea slider-ului setată la {fill}. XPNow: {XPNow}, xpToNext: {xpToNext}");
+
         xpText.text = XPNow + " / " + xpToNext;
     }
 
     private void OnXPAdded(XPAddedGameEvent info) 
     {
         XPNow += info.amount;
-       
+        //Debug.Log($"OnXPAdded: Experiență adăugată: {info.amount}. XPNow actualizat la {XPNow}");
+
+
         UpdateUI();
        
         if(XPNow >= xpToNext)
         {
             Level++;
+            //Debug.Log("OnXPAdded: XPNow a depășit xpToNext, nivelul va fi crescut.");
             LevelChangedGameEvent levelChange = new LevelChangedGameEvent(Level);
             EventManager.Instance.QueueEvent(levelChange);
         }
@@ -117,6 +122,15 @@ public class LevelSystem : MonoBehaviour
     {
         XPNow -= xpToNext;
         xpToNext = xpToNextLevel[info.newLvl];
+        //if (xpToNext == 0)
+        //{
+        //    Debug.LogError("OnLevelChanged: xpToNext este 0 după schimbarea nivelului. Verifică valorile în xpToNextLevel.");
+        //}
+        //else
+        //{
+        //    Debug.Log($"OnLevelChanged: xpToNext actualizat la {xpToNext} pentru nivelul {info.newLvl}.");
+        //}
+
         lvlText.text = (info.newLvl + 1).ToString();
         UpdateUI();
 
