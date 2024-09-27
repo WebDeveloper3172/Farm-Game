@@ -27,7 +27,7 @@ public class ObjectDrag : MonoBehaviour
     private void LateUpdate()
     {
         if (Input.GetMouseButton(0))
-        { 
+        {
             gameObject.GetComponent<PlaceableObject>().CheckPlacement();
             Destroy(this);
         }

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 'Farmhouse '
   Description: Spacious
-  Level: 3
+  Level: 2
   Price: 10
   Currency: 1
   Type: 2
   Icon: {fileID: 21300000, guid: 1ab27d4068177094995e429818ef58df, type: 3}
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 491501375955994331, guid: 4bbde65f1415915469af785c54042635, type: 3}
