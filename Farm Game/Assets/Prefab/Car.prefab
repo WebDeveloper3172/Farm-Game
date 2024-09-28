@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2062654382912830072}
   - component: {fileID: 892123814658241896}
-  - component: {fileID: 1900784873868202567}
   - component: {fileID: 584151873734140175}
   - component: {fileID: 2947833381642070949}
+  - component: {fileID: 2518896029524034309}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -87,21 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1900784873868202567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491501375955994331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bce18b3036ee9fb4d9897eeb3b2d0c12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  area:
-    m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 8, y: 8, z: 1}
 --- !u!1839735485 &584151873734140175
 Tilemap:
   m_ObjectHideFlags: 0
@@ -528,3 +513,18 @@ PolygonCollider2D:
       - {x: 2.235, y: 0.705}
       - {x: 2.185, y: 0.705}
   m_UseDelaunayMesh: 0
+--- !u!114 &2518896029524034309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491501375955994331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce18b3036ee9fb4d9897eeb3b2d0c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area:
+    m_Position: {x: 0, y: 0, z: 0}
+    m_Size: {x: 8, y: 8, z: 1}

@@ -31,7 +31,12 @@ public class PlaceableObject : MonoBehaviour
         areaTemp.position = positionInt;
 
         Placed = true;
+        origin = transform.position;
         BuildingSystem.current.TakeArea(areaTemp);
+
+        PanZoom.current.UnfollowObject();
+
+
     }
 
     public void CheckPlacement()

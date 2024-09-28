@@ -67,6 +67,8 @@ public class BuildingSystem : MonoBehaviour
         GameObject obj = Instantiate(building , position , Quaternion.identity);
         PlaceableObject temp = obj.transform.GetComponent<PlaceableObject>();
         temp.gameObject.AddComponent<ObjectDrag>();
+
+        PanZoom.current.FollowObject(obj.transform);
     }
 
     public bool CanTakeArea(BoundsInt area)
