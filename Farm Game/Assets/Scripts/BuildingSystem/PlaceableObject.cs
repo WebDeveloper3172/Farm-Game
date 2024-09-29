@@ -53,7 +53,7 @@ public class PlaceableObject : MonoBehaviour
                 Destroy(transform.gameObject);
             }
 
-            ShopManager.current.ShopButton_Click();
+            //ShopManager.current.ShopButton_Click();
         }
         else
         {
