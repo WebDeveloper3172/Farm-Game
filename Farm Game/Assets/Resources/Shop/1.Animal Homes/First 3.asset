@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 'Burrow '
   Description: Fantastic
-  Level: 3
+  Level: 4
   Price: 20
   Currency: 1
   Type: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 'Sawmill '
   Description: Functional
-  Level: 1
+  Level: 2
   Price: 30
   Currency: 0
   Type: 2

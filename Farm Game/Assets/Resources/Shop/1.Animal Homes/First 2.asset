@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 'Nest '
   Description: Beautiful
-  Level: 2
+  Level: 3
   Price: 60
   Currency: 0
   Type: 0

@@ -22,8 +22,8 @@ public class CurencySystem : MonoBehaviour
     }
     private void Start()
     {
-        CurrencyAmounts[CurrencyType.Coins] = 100;
-        CurrencyAmounts[CurrencyType.Crystals] = 10;
+        //CurrencyAmounts[CurrencyType.Coins] = 100;
+        //CurrencyAmounts[CurrencyType.Crystals] = 10;
         UpdateUI();
 
         EventManager.Instance.AddListener<CurrencyChangeGameEvent>(OnCurrencyChange);

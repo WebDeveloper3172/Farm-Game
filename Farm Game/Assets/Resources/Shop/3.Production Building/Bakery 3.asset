@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 'Farmhouse '
   Description: Spacious
-  Level: 3
+  Level: 5
   Price: 10
   Currency: 1
   Type: 2

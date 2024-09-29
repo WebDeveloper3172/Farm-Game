@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 'Den '
   Description: 
-  Level: 1
+  Level: 2
   Price: 40
   Currency: 1
   Type: 0
