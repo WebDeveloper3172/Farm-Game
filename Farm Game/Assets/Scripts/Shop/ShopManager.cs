@@ -25,7 +25,7 @@ public class ShopManager : MonoBehaviour
         current = this;
 
         rt = GetComponent<RectTransform>();
-        prt =/* transform.parent != null ? */transform.parent.GetComponent<RectTransform>() /*: null*/;
+        prt = transform.parent != null ? transform.parent.GetComponent<RectTransform>() : null;
 
         if (prt == null)
         {
@@ -96,34 +96,34 @@ public class ShopManager : MonoBehaviour
                 // Verificăm dacă nivelul item-ului corespunde cu nivelul curent
                 if (item.Level == info.newLvl)
                 {
-                    //if (i >= shopTabs.objectsToSwap.Count)
-                    //{
-                    //    Debug.LogError($"OnLevelChanged: Indexul i ({i}) depășește numărul de obiecte din shopTabs.objectsToSwap.");
-                    //    continue;
-                    //}
+                    if (i >= shopTabs.objectsToSwap.Count)
+                    {
+                        Debug.LogError($"OnLevelChanged: Indexul i ({i}) depășește numărul de obiecte din shopTabs.objectsToSwap.");
+                        continue;
+                    }
 
-                    //Transform tabTransform = shopTabs.objectsToSwap[i].transform;
-                    //if (tabTransform.childCount <= j)
-                    //{
-                    //    Debug.LogError($"OnLevelChanged: Indexul j ({j}) depășește numărul de copii ai transformului.");
-                    //    continue;
-                    //}
+                    Transform tabTransform = shopTabs.objectsToSwap[i].transform;
+                    if (tabTransform.childCount <= j)
+                    {
+                        Debug.LogError($"OnLevelChanged: Indexul j ({j}) depășește numărul de copii ai transformului.");
+                        continue;
+                    }
 
-                    // Accesăm obiectul copil specific și componenta ShopItemHolder
-                    //Transform itemTransform = tabTransform.GetChild(j);
-                    //ShopItemHolder itemHolder = itemTransform.GetComponent<ShopItemHolder>();
-                    //if (itemHolder == null)
-                    //{
-                    //    Debug.LogError("OnLevelChanged: Componenta ShopItemHolder nu a fost găsită pe obiectul de tip ShopItem.");
-                    //    continue;
-                    //}
+                    //Accesăm obiectul copil specific și componenta ShopItemHolder
+                   Transform itemTransform = tabTransform.GetChild(j);
+                    ShopItemHolder itemHolder = itemTransform.GetComponent<ShopItemHolder>();
+                    if (itemHolder == null)
+                    {
+                        Debug.LogError("OnLevelChanged: Componenta ShopItemHolder nu a fost găsită pe obiectul de tip ShopItem.");
+                        continue;
+                    }
 
-                    // Aici are loc logica de deblocare a item-ului
-                    //itemHolder.UnlockItem();
+                    //Aici are loc logica de deblocare a item-ului
+                    itemHolder.UnlockItem();
 
-                    //Debug.Log($"OnLevelChanged: Item-ul {itemHolder.name} a fost deblocat pentru nivelul {info.newLvl}.");
+                    Debug.Log($"OnLevelChanged: Item-ul {itemHolder.name} a fost deblocat pentru nivelul {info.newLvl}.");
 
-                    shopTabs.transform.GetChild(i).GetChild(j).GetComponent<ShopItemHolder>().UnlockItem();
+                    //shopTabs.transform.GetChild(i).GetChild(j).GetComponent<ShopItemHolder>().UnlockItem();
                 }
             }
         }

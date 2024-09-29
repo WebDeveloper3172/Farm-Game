@@ -122,14 +122,14 @@ public class LevelSystem : MonoBehaviour
     {
         XPNow -= xpToNext;
         xpToNext = xpToNextLevel[info.newLvl];
-        //if (xpToNext == 0)
-        //{
-        //    Debug.LogError("OnLevelChanged: xpToNext este 0 după schimbarea nivelului. Verifică valorile în xpToNextLevel.");
-        //}
-        //else
-        //{
-        //    Debug.Log($"OnLevelChanged: xpToNext actualizat la {xpToNext} pentru nivelul {info.newLvl}.");
-        //}
+        if (xpToNext == 0)
+        {
+            Debug.LogError("OnLevelChanged: xpToNext este 0 după schimbarea nivelului. Verifică valorile în xpToNextLevel.");
+        }
+        else
+        {
+            Debug.Log($"OnLevelChanged: xpToNext actualizat la {xpToNext} pentru nivelul {info.newLvl}.");
+        }
 
         lvlText.text = (info.newLvl + 1).ToString();
         UpdateUI();
