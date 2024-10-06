@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -115,6 +115,13 @@ public class PanZoom : MonoBehaviour
                         break;
                 }
             }
+        }
+
+        // Pentru PC (zoom cu roata mouse-ului)
+        if (Input.mouseScrollDelta.y != 0)
+        {
+            float scroll = Input.mouseScrollDelta.y;
+            Zoom(scroll * 0.5f);  // Ajustăm factorul de zoom pentru PC (poți modifica 0.5f dacă este prea rapid sau prea lent)
         }
     }
 

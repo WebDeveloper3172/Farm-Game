@@ -2048,8 +2048,8 @@ MonoBehaviour:
   rightLimit: 20
   upperLimit: -10
   bottomLimit: 10
-  zoomMin: 2
-  zoomMax: 5
+  zoomMin: 3
+  zoomMax: 13
 --- !u!1 &524584263
 GameObject:
   m_ObjectHideFlags: 0
