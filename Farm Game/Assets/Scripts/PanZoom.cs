@@ -58,8 +58,9 @@ public class PanZoom : MonoBehaviour
             }
             return;
         }
-
-        if(Input.touchCount > 0)
+       
+        // Pentru Android
+        if (Input.touchCount > 0)
         {
             if (Input.touchCount == 2)
             {
@@ -105,17 +106,46 @@ public class PanZoom : MonoBehaviour
                             Vector3 direction = touchPos - cam.ScreenToWorldPoint(touch.position);
                             cam.transform.position += direction;
 
-                            transform.position = new Vector3 
-                            (
-                            Mathf.Clamp(transform.position.x , leftLimit , rightLimit),
-                            Mathf.Clamp(transform.position.y, bottomLimit, upperLimit), 
-                            transform.position.z
-                            );
+                            //transform.position = new Vector3
+                            //(
+                            //Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
+                            //Mathf.Clamp(transform.position.y, bottomLimit, upperLimit),
+                            //transform.position.z
+                            //);
                         }
                         break;
                 }
             }
         }
+
+        // === Logica pentru PC (mișcare cu mouse-ul) ===
+        if (Input.GetMouseButtonDown(0))  // Detectăm apăsarea butonului stâng al mouse-ului
+        {
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                moveAllowed = true;  // Permitem mișcarea
+                touchPos = cam.ScreenToWorldPoint(Input.mousePosition);  // Salvăm poziția mouse-ului
+            }
+            else
+            {
+                moveAllowed = false;  // Nu permitem mișcarea dacă mouse-ul este peste un element UI
+            }
+        }
+
+        if (Input.GetMouseButton(0) && moveAllowed)  // Detectăm mișcarea mouse-ului în timp ce butonul stâng este apăsat
+        {
+            Vector3 direction = touchPos - cam.ScreenToWorldPoint(Input.mousePosition);  // Calculăm direcția de mișcare
+            cam.transform.position += direction;  // Mutăm camera
+
+            // Limităm mișcarea în limitele setate
+            //transform.position = new Vector3
+            //(
+            //    Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
+            //    Mathf.Clamp(transform.position.y, bottomLimit, upperLimit),
+            //    transform.position.z
+            //);
+        }
+
 
         // Pentru PC (zoom cu roata mouse-ului)
         if (Input.mouseScrollDelta.y != 0)
@@ -147,12 +177,12 @@ public class PanZoom : MonoBehaviour
         Vector3 newPos = new Vector3(position.x , position.y , transform.position.z);
         LeanTween.move(gameObject , newPos , 0.2f);
 
-        transform.position = new Vector3
-                           (
-                           Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
-                           Mathf.Clamp(transform.position.y, bottomLimit, upperLimit),
-                           transform.position.z
-                           );
+        //transform.position = new Vector3
+        //                   (
+        //                   Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
+        //                   Mathf.Clamp(transform.position.y, bottomLimit, upperLimit),
+        //                   transform.position.z
+        //                   );
 
         touchPos = transform.position;
     }
