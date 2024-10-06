@@ -149,22 +149,22 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("ShopButton_Click: opened = " + opened);
+        //Debug.Log("ShopButton_Click: opened = " + opened);
 
         if (!opened)
         {
-            Debug.Log("ShopButton_Click: Deschiderea magazinului.");
+            //Debug.Log("ShopButton_Click: Deschiderea magazinului.");
             LeanTween.moveX(prt, prt.anchoredPosition.x + rt.sizeDelta.x, time);
             opened = true;
             gameObject.SetActive(true);
         }
         else
         {
-            Debug.Log("ShopButton_Click: Închiderea magazinului.");
+            //Debug.Log("ShopButton_Click: Închiderea magazinului.");
             LeanTween.moveX(prt, prt.anchoredPosition.x - rt.sizeDelta.x, time)
                 .setOnComplete(delegate ()
                 {
-                    Debug.Log("ShopButton_Click: Dezactivarea gameObject-ului după închidere.");
+                    //Debug.Log("ShopButton_Click: Dezactivarea gameObject-ului după închidere.");
                     gameObject.SetActive(false);
                 });
             opened = false;
