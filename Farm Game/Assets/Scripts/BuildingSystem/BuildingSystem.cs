@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -11,6 +11,7 @@ public class BuildingSystem : MonoBehaviour
     public GridLayout gridLayout;
     public Tilemap MainTileMap;
     public TileBase takenTile;
+
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class BuildingSystem : MonoBehaviour
 
         foreach (var v in area.allPositionsWithin)
         {
-            Vector3Int pos = new Vector3Int(v.x , v.y , 0);
+            Vector3Int pos = new Vector3Int(v.x, v.y, 0);
             array[counter] = tilemap.GetTile(pos);
             counter++;
         }
@@ -34,46 +35,45 @@ public class BuildingSystem : MonoBehaviour
         return array;
     }
 
-    private static void SetTilesBlock(BoundsInt area , TileBase tileBase , Tilemap tilemap)
+    private static void SetTilesBlock(BoundsInt area, TileBase tileBase, Tilemap tilemap)
     {
         TileBase[] tileArray = new TileBase[area.size.x * area.size.y];
         FillTiles(tileArray, tileBase);
-        tilemap.SetTilesBlock(area , tileArray);
+        tilemap.SetTilesBlock(area, tileArray);
     }
 
-    private static void FillTiles(TileBase[] arr , TileBase tileBase)
+    private static void FillTiles(TileBase[] arr, TileBase tileBase)
     {
-        for (int i = 0; i< arr.Length; i++)
+        for (int i = 0; i < arr.Length; i++)
         {
             arr[i] = tileBase;
         }
     }
 
-    public void ClearArea(BoundsInt area , Tilemap tilemap)
+    public void ClearArea(BoundsInt area, Tilemap tilemap)
     {
-        SetTilesBlock(area , null , tilemap);
+        SetTilesBlock(area, null, tilemap);
     }
     #endregion
 
     #region  Building Placement
 
-    public void InitializeWithObject(GameObject building , Vector3 pos)
+    public void InitializeWithObject(GameObject building, Vector3 pos)
     {
         pos.z = 0;
         pos.y -= building.GetComponent<SpriteRenderer>().bounds.size.y / 2f;
         Vector3Int cellPos = gridLayout.WorldToCell(pos);
         Vector3 position = gridLayout.CellToLocalInterpolated(cellPos);
 
-        GameObject obj = Instantiate(building , position , Quaternion.identity);
+        GameObject obj = Instantiate(building, position, Quaternion.identity);
         PlaceableObject temp = obj.transform.GetComponent<PlaceableObject>();
         temp.gameObject.AddComponent<ObjectDrag>();
 
         PanZoom.current.FollowObject(obj.transform);
     }
-
     public bool CanTakeArea(BoundsInt area)
     {
-        TileBase[] baseArray = GetTilesBlock(area , MainTileMap);
+        TileBase[] baseArray = GetTilesBlock(area, MainTileMap);
         foreach (var b in baseArray)
         {
             if (b == takenTile)
@@ -84,10 +84,34 @@ public class BuildingSystem : MonoBehaviour
         return true;
     }
 
+
     public void TakeArea(BoundsInt area)
     {
-        SetTilesBlock(area , takenTile , MainTileMap);
+        SetTilesBlock(area, takenTile, MainTileMap);
     }
 
-    #endregion
+    public void UnlockTerritory(BoundsInt area, TileBase territoryTile, Tilemap territoryTileMap)
+    {
+        Debug.LogError("Territoriul Deblocat");
+        // Logare pentru a verifica începutul metodei
+        Debug.LogError($"Încercăm să deblocăm teritoriul pentru zona: {area}");
+
+        // Creează un array pentru tile-uri
+        TileBase[] tileArray = new TileBase[area.size.x * area.size.y];
+
+        // Umplem array-ul cu tile-ul specificat
+        //FillTiles(tileArray, territoryTile);
+
+        // Logare pentru a verifica tile-urile care vor fi setate
+        Debug.LogError($"Setăm tile-uri pentru zona {area} cu tile: {territoryTile}");
+
+        // Setează toate tile-urile în Tilemap pentru zona specificată
+        territoryTileMap.SetTilesBlock(area, tileArray);
+
+        // Logare pentru a confirma finalizarea operației
+        Debug.LogError($"Teritoriul deblocat cu succes pentru zona: {area}");
+
+        #endregion
+    }
+
 }
