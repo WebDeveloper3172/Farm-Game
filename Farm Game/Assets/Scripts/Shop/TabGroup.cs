@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TabGroup : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class TabGroup : MonoBehaviour
     public List<TabButton> tabButtons = new List<TabButton>();
     public List<GameObject> objectsToSwap = new List<GameObject>();
     public List<TextMeshProUGUI> textsToSwap = new List<TextMeshProUGUI>();
+
+    public ScrollRect scrollRect;
 
     [NonSerialized] public TabButton selectedTab;
 
@@ -52,6 +55,7 @@ public class TabGroup : MonoBehaviour
             {
                 objectsToSwap[i].SetActive(true);
                 textsToSwap[i].gameObject.SetActive(true);
+                scrollRect.content = objectsToSwap[i].GetComponent<RectTransform>();
             }
             else
             {
