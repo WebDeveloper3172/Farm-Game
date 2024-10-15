@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2062654382912830072}
   - component: {fileID: 892123814658241896}
   - component: {fileID: 2947833381642070949}
-  - component: {fileID: 2518896029524034309}
+  - component: {fileID: 7206172157003353154}
   m_Layer: 0
   m_Name: Tree1
   m_TagString: Untagged
@@ -273,7 +273,7 @@ PolygonCollider2D:
       - {x: 0.04, y: -2.34}
       - {x: 0.29999998, y: -2.32}
   m_UseDelaunayMesh: 0
---- !u!114 &2518896029524034309
+--- !u!114 &7206172157003353154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 491501375955994331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bce18b3036ee9fb4d9897eeb3b2d0c12, type: 3}
+  m_Script: {fileID: 11500000, guid: 512d4b4742a8d0047a1863b1df77ba40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   area:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2062654382912830072}
   - component: {fileID: 892123814658241896}
   - component: {fileID: 6847955787729150901}
-  - component: {fileID: 853037017756914773}
+  - component: {fileID: 976717590820128727}
   m_Layer: 0
   m_Name: HouseGreen
   m_TagString: Untagged
@@ -163,7 +163,7 @@ PolygonCollider2D:
       - {x: 2.475, y: -1.31}
       - {x: 2.715, y: -1.18}
   m_UseDelaunayMesh: 0
---- !u!114 &853037017756914773
+--- !u!114 &976717590820128727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,9 +172,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 491501375955994331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bce18b3036ee9fb4d9897eeb3b2d0c12, type: 3}
+  m_Script: {fileID: 11500000, guid: 512d4b4742a8d0047a1863b1df77ba40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   area:
     m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 8, y: 8, z: 1}
+    m_Size: {x: 14, y: 14, z: 1}

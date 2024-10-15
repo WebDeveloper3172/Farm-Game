@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2062654382912830072}
   - component: {fileID: 892123814658241896}
   - component: {fileID: 6847955787729150901}
-  - component: {fileID: 853037017756914773}
+  - component: {fileID: 4040449485246218200}
   m_Layer: 0
   m_Name: HouseBlue
   m_TagString: Untagged
@@ -228,7 +228,7 @@ PolygonCollider2D:
       - {x: 0.12, y: -2.34}
       - {x: 0.14999999, y: -2.28}
   m_UseDelaunayMesh: 0
---- !u!114 &853037017756914773
+--- !u!114 &4040449485246218200
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 491501375955994331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bce18b3036ee9fb4d9897eeb3b2d0c12, type: 3}
+  m_Script: {fileID: 11500000, guid: 512d4b4742a8d0047a1863b1df77ba40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   area:
