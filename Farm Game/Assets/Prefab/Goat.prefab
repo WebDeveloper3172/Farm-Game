@@ -451,3 +451,7 @@ MonoBehaviour:
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 8, y: 8, z: 1}
+  daysToComplete: 1
+  hoursToComplete: 1
+  minutesToComplete: 20
+  secondsToComplete: 0

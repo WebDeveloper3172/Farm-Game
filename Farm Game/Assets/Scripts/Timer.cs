@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +20,11 @@ public class Timer : MonoBehaviour
     {
         get 
         {
+            if (secondsLeft < 60)
+            {
+                return 1;
+            }
+            // Altfel, calculează skipAmount conform formulei existente
             return (int)(secondsLeft / 60) * 2;
         }
     }
