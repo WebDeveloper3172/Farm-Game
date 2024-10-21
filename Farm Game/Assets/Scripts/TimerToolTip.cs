@@ -74,8 +74,7 @@ public class TimerToolTip : MonoBehaviour
     }
 
     private void OnNotEnoughCurrency(NotEnoughCurrencyGameEvent info)
-    {
-        EventManager.Instance.RemoveListener<EnoughCurrencyGameEvent>(OnEnoughCurrency);
+    {        EventManager.Instance.RemoveListener<EnoughCurrencyGameEvent>(OnEnoughCurrency);
     }
 
     public void HideTimer()

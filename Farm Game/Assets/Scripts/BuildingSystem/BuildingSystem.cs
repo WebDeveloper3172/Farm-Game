@@ -58,7 +58,7 @@ public class BuildingSystem : MonoBehaviour
 
     #region  Building Placement
 
-    public void InitializeWithObject(GameObject building, Vector3 pos)
+    public GameObject InitializeWithObject(GameObject building, Vector3 pos)
     {
         pos.z = 0;
         pos.y -= building.GetComponent<SpriteRenderer>().bounds.size.y / 2f;
@@ -70,6 +70,8 @@ public class BuildingSystem : MonoBehaviour
         temp.gameObject.AddComponent<ObjectDrag>();
 
         PanZoom.current.FollowObject(obj.transform);
+
+        return obj;
     }
     public bool CanTakeArea(BoundsInt area)
     {

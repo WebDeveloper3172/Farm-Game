@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3081242750878082901}
   - component: {fileID: 3939382250754203706}
   - component: {fileID: 3782716906236740432}
-  - component: {fileID: 4683369539717410480}
+  - component: {fileID: -1955240186548037534}
   m_Layer: 0
   m_Name: Goat
   m_TagString: Untagged
@@ -436,7 +436,7 @@ PolygonCollider2D:
       - {x: 1.0866667, y: -0.14}
       - {x: 1.08, y: -0.14666668}
   m_UseDelaunayMesh: 0
---- !u!114 &4683369539717410480
+--- !u!114 &-1955240186548037534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,13 +445,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6688883963585979011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512d4b4742a8d0047a1863b1df77ba40, type: 3}
+  m_Script: {fileID: 11500000, guid: bce18b3036ee9fb4d9897eeb3b2d0c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 8, y: 8, z: 1}
-  daysToComplete: 1
-  hoursToComplete: 1
-  minutesToComplete: 20
-  secondsToComplete: 0

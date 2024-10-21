@@ -9,18 +9,26 @@ public class PlaceableObject : MonoBehaviour
 
     public BoundsInt area;
 
+
+    private void Awake()
+    {
+        PanZoom.current.FollowObject(transform);
+    }
+
+    public void Load()
+    {
+        PanZoom.current.UnfollowObject();
+        Destroy(GetComponent<ObjectDrag>());
+        Place();
+    
+    }
+
     public bool CanBePlaced()
     {
         Vector3Int positionInt = BuildingSystem.current.gridLayout.LocalToCell(transform.position);
         BoundsInt areaTemp = area;
         areaTemp.position = positionInt;
 
-        //if (BuildingSystem.current.CanTakeArea(areaTemp))
-        //{
-        //    return true;
-        //}
-
-        //return false;
         return BuildingSystem.current.CanTakeArea(areaTemp);
     }
 
