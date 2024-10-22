@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -23,17 +23,21 @@ public class StorageUI : MonoBehaviour
         storageTypeText.text = name;
     }
 
-    public void Initialize(int currentAmount , int maxAmount , Dictionary<CollectibleItem , int> itemAmounts )
+    public void Initialize(int currentAmount, int maxAmount, Dictionary<CollectibleItem, int> itemAmounts)
     {
+
         maxItemsText.text = currentAmount + "/" + maxAmount;
         maxItemsSlider.value = (float)currentAmount / maxAmount;
 
         InitializeItems(itemAmounts);
     }
 
-    private void InitializeItems(Dictionary<CollectibleItem , int> itemAmounts )
+    private void InitializeItems(Dictionary<CollectibleItem, int> itemAmounts)
     {
+     
         int childCount = itemsContent.childCount;
+       
+
         for (int i = 0; i < childCount; i++)
         {
             Destroy(itemsContent.GetChild(i).gameObject);
@@ -41,9 +45,22 @@ public class StorageUI : MonoBehaviour
 
         foreach (var itemPair in itemAmounts)
         {
-            GameObject itemHolder = Instantiate(itemPrefab , itemsContent);
+            GameObject itemHolder = Instantiate(itemPrefab, itemsContent);
+
             itemHolder.transform.Find("Icon").GetComponent<Image>().sprite = itemPair.Key.Icon;
-            itemHolder.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = itemPair.Value.ToString();
+            var amountTransform = itemHolder.transform.Find("Amount");
+            if (amountTransform == null)
+            {
+                Debug.LogError("Nu s-a găsit obiectul Amount în itemPrefab.");
+            }
+            else if (amountTransform.GetComponent<TextMeshProUGUI>() == null)
+            {
+                Debug.LogError("Componenta TextMeshProUGUI nu există pe Amount.");
+            }
+            else
+            {
+                amountTransform.GetComponent<TextMeshProUGUI>().text = itemPair.Value.ToString();
+            }
         }
     }
 

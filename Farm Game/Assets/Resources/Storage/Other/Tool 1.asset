@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e41f8a980115fbb49b369cbc61187800, type: 3}
-  m_Name: Crop 1
+  m_Script: {fileID: 11500000, guid: a7847a6350771494eb7795bdd5121b22, type: 3}
+  m_Name: Tool 1
   m_EditorClassIdentifier: 
-  Name: Grau
-  Description: Sanatos
-  Icon: {fileID: 21300000, guid: fddb45cb917deb847aa6f5e935f3a017, type: 3}
+  Name: Lopata
+  Description: Sapa
+  Icon: {fileID: 21300000, guid: 214e87194b3dffd4c95847028334ceaa, type: 3}
   Level: 0

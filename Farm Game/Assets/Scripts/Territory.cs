@@ -25,7 +25,7 @@ public class Territory : MonoBehaviour
 
     private void CalculateArea()
     {
-        Debug.Log("Calculăm zona...");
+        //Debug.Log("Calculăm zona...");
 
         BoundsInt bounds = territoryTilemap.cellBounds;
         List<Vector3Int> occupiedTilePositions = new List<Vector3Int>();
@@ -62,7 +62,7 @@ public class Territory : MonoBehaviour
             int height = maxPosition.y - minPosition.y + 1;
 
             area = new BoundsInt(minPosition.x, minPosition.y, 0, width, height, 1);
-            Debug.Log($"Area calculată: Position: {area.position}, Size: {area.size}");
+            //Debug.Log($"Area calculată: Position: {area.position}, Size: {area.size}");
         }
         else
         {

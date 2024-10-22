@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8206671245796621511}
   - component: {fileID: 610131227287856811}
   - component: {fileID: 4680541978777634318}
-  - component: {fileID: 8819542394190299494}
+  - component: {fileID: 6083336836549927676}
   m_Layer: 0
   m_Name: Barn
   m_TagString: Untagged
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 908a4903ae98e3c40bf2ec69303d45fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -160,7 +160,7 @@ PolygonCollider2D:
       - {x: 1.3149999, y: -0.48999998}
       - {x: 1.3349999, y: -0.45999998}
   m_UseDelaunayMesh: 0
---- !u!114 &8819542394190299494
+--- !u!114 &6083336836549927676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,5 +174,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   area:
     m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 20, y: 20, z: 1}
+    m_Size: {x: 15, y: 15, z: 1}
   windowPrefab: {fileID: 1346170052004669745, guid: ed3ce754dbd8b54419c5794df4b0d9c2, type: 3}
