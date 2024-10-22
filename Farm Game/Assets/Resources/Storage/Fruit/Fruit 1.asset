@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25a0286383d7814596c52576dd01d88, type: 3}
-  m_Name: AnimalProduct 1
+  m_Script: {fileID: 11500000, guid: 206cf85df3b8615499a5cc5506360651, type: 3}
+  m_Name: Fruit 1
   m_EditorClassIdentifier: 
-  Name: 'Lapte '
-  Description: Proaspat
-  Icon: {fileID: 21300000, guid: 0df5666472910644fa7955e7c53194ae, type: 3}
+  Name: Capsuna
+  Description: Acra
+  Icon: {fileID: 21300000, guid: b0cd6d1e0a981c642ae4db799317d31d, type: 3}
   Level: 0

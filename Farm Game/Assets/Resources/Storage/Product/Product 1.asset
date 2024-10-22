@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e41f8a980115fbb49b369cbc61187800, type: 3}
-  m_Name: Crop 2
+  m_Script: {fileID: 11500000, guid: 4a91bbb448da2f742873d32c6ba971ce, type: 3}
+  m_Name: Product 1
   m_EditorClassIdentifier: 
-  Name: Capsuna
-  Description: 'Dulce '
-  Icon: {fileID: 21300000, guid: f393baa6b19ae714986ad7ee56d4dfa8, type: 3}
-  Level: 1
+  Name: Paine
+  Description: Moale
+  Icon: {fileID: 21300000, guid: 2b67df61913545048a9fadf03e95acca, type: 3}
+  Level: 0
