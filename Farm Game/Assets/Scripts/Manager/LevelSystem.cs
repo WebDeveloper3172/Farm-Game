@@ -30,7 +30,7 @@ public class LevelSystem : MonoBehaviour
         lvlText = starImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
 
         if (!initialized)
-        {
+        { 
             Initialized();
         }
         xpToNextLevel.TryGetValue(Level , out xpToNext);
@@ -134,16 +134,38 @@ public class LevelSystem : MonoBehaviour
         lvlText.text = (info.newLvl + 1).ToString();
         UpdateUI();
 
-        GameObject window = Instantiate(lvlWindowPrefab , GameManager.current.canvas.transform);
+        // Corectare: folosim metoda standard de instanțiere din Unity
+        GameObject window = Instantiate(lvlWindowPrefab, GameManager.current.canvas.transform);
 
-       //initialize text and image here
-        window.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() =>
+        Transform windowLvlTextTransform = FindDeepChild(window.transform, "levelText"); 
+
+        if (windowLvlTextTransform != null)
+        {
+            // Получаем компонент TextMeshProUGUI
+            TextMeshProUGUI windowLvlText = windowLvlTextTransform.GetComponent<TextMeshProUGUI>();
+
+            if (windowLvlText != null)
+            {
+                windowLvlText.text = $"You've reached Level {info.newLvl + 1}!"; // Устанавливаем желаемый текст
+            }
+            else
+            {
+                Debug.LogError("OnLevelChanged: Не удалось получить компонент TextMeshProUGUI из lvlWindowPrefab.");
+            }
+        }
+        else
+        {
+            Debug.LogError("OnLevelChanged: lvlText не найден в lvlWindowPrefab.");
+        }
+
+        //initialize text and image here
+        window.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() =>
         {
             Destroy(window);
         });
 
         CurrencyChangeGameEvent currencyInfo =
-            new CurrencyChangeGameEvent(lvlReward[info.newLvl][0] , CurrencyType.Coins);
+            new CurrencyChangeGameEvent(lvlReward[info.newLvl][0], CurrencyType.Coins);
         EventManager.Instance.QueueEvent(currencyInfo);
 
         currencyInfo =
@@ -151,10 +173,15 @@ public class LevelSystem : MonoBehaviour
         EventManager.Instance.QueueEvent(currencyInfo);
     }
 
-    private GameObject Instantiate(GameObject lvlWindowPrefab, object transform)
-    {
-        throw new NotImplementedException();
-    }
+  
+
+      
+
+
+    //private GameObject Instantiate(GameObject lvlWindowPrefab, object transform)
+    //{
+    //    throw new NotImplementedException();
+    //}
 
     private Transform FindDeepChild(Transform parent, string childName)
     {

@@ -51,7 +51,7 @@ public class StorageUI : MonoBehaviour
             var amountTransform = itemHolder.transform.Find("Amount");
             if (amountTransform == null)
             {
-                Debug.LogError("Nu s-a găsit obiectul Amount în itemPrefab.");
+                //Debug.LogError("Nu s-a găsit obiectul Amount în itemPrefab.");
             }
             else if (amountTransform.GetComponent<TextMeshProUGUI>() == null)
             {

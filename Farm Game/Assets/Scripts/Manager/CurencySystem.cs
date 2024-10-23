@@ -55,7 +55,7 @@ public class CurencySystem : MonoBehaviour
         CurrencyAmounts[info.currencyType] += info.amount;
         currencyText[info.currencyType].text = CurrencyAmounts[info.currencyType].ToString();
 
-        UpdateUI();
+        UpdateUI();  
     }
 
     private void OnNotEnough(NotEnoughCurrencyGameEvent info)
