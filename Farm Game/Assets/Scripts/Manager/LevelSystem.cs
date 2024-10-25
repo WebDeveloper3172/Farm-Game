@@ -137,6 +137,8 @@ public class LevelSystem : MonoBehaviour
         // Corectare: folosim metoda standard de instanțiere din Unity
         GameObject window = Instantiate(lvlWindowPrefab, GameManager.current.canvas.transform);
 
+        PanZoom.current.canMoveAndZoom = false;
+
         Transform windowLvlTextTransform = FindDeepChild(window.transform, "levelText"); 
 
         if (windowLvlTextTransform != null)
@@ -162,6 +164,7 @@ public class LevelSystem : MonoBehaviour
         window.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() =>
         {
             Destroy(window);
+            PanZoom.current.canMoveAndZoom = true;
         });
 
         CurrencyChangeGameEvent currencyInfo =

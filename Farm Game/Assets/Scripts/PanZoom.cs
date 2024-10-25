@@ -25,6 +25,8 @@ public class PanZoom : MonoBehaviour
     private Bounds objectBounts;
     private Vector3 prevPos;
 
+    public bool canMoveAndZoom = true;
+
 
     private void Awake()
     {
@@ -34,6 +36,8 @@ public class PanZoom : MonoBehaviour
 
     private void Update()
     {
+        if (!canMoveAndZoom) return;
+
         if (objectToFollow != null)
         {
             Vector3 objPos = cam.WorldToViewportPoint(objectToFollow.position + objectBounts.max);
