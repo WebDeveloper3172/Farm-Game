@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,13 +39,17 @@ public class PlaceableObject : MonoBehaviour
         areaTemp.position = positionInt;
 
         Placed = true;
-        //origin = transform.position;
+
+        // Poziționăm obiectul și ajustăm pe `Y`
+        Vector3 adjustedPosition = new Vector3(transform.position.x, transform.position.y + GetComponent<SpriteRenderer>().bounds.size.y / 2f, 0);
+        transform.position = adjustedPosition;
+
+        origin = adjustedPosition;
         BuildingSystem.current.TakeArea(areaTemp);
 
         PanZoom.current.UnfollowObject();
-
-
     }
+
 
     public void CheckPlacement()
     {
