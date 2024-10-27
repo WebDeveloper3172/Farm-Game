@@ -108,6 +108,5 @@ public class StorageManager : MonoBehaviour
         Barn = barnObject.GetComponent<StorageBuilding>();
         Barn.Load();
         Barn.Initialize(barnItems, "Barn");
-        Barn.Initialize(barnItems , "Barn");
     } 
 }
