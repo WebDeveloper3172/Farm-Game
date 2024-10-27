@@ -40,11 +40,11 @@ public class PlaceableObject : MonoBehaviour
 
         Placed = true;
 
-        // Poziționăm obiectul și ajustăm pe `Y`
-        Vector3 adjustedPosition = new Vector3(transform.position.x, transform.position.y + GetComponent<SpriteRenderer>().bounds.size.y / 2f, 0);
-        transform.position = adjustedPosition;
+        //// Poziționăm obiectul și ajustăm pe `Y`
+        //Vector3 adjustedPosition = new Vector3(transform.position.x, transform.position.y + GetComponent<SpriteRenderer>().bounds.size.y / 2f, 0);
+        //transform.position = adjustedPosition;
 
-        origin = adjustedPosition;
+        //origin = adjustedPosition;
         BuildingSystem.current.TakeArea(areaTemp);
 
         PanZoom.current.UnfollowObject();
@@ -114,7 +114,7 @@ public class PlaceableObject : MonoBehaviour
             }
         }
 
-        if (touching && Input.GetMouseButton(0))
+        if (touching && Input.GetMouseButtonUp(0))
         {
             touching = false;
         }
