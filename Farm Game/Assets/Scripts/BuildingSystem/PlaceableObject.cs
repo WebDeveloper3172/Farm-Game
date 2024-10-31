@@ -96,7 +96,7 @@ public class PlaceableObject : MonoBehaviour
             {
                 time = 0;
             }
-            else if (Input.GetMouseButton(0))
+            else if (Input.GetMouseButton(0)) 
             {
                 time += Time.deltaTime;
 
@@ -120,5 +120,7 @@ public class PlaceableObject : MonoBehaviour
         }
     }
 
-
+    protected virtual void OnClick()
+    { 
+    }
 }

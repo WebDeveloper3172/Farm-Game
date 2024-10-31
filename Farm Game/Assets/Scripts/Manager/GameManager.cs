@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     {
         current = this;
         ShopItemDrag.canvas = canvas.GetComponent<Canvas>();
+        UIDrag.canvas = canvas.GetComponent<Canvas>();
     }
 
     public void GetXP(int amount)

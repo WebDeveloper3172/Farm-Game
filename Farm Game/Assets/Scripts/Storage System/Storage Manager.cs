@@ -30,6 +30,8 @@ public class StorageManager : MonoBehaviour
         current = this;
         Dictionary<CollectibleItem, int> itemsAmounts = LoadItems();
         Sort(itemsAmounts);
+
+        Field.Initialize(crops);
     }
 
     private Dictionary<CollectibleItem, int> LoadItems()
